@@ -100,7 +100,7 @@ BaseApp::init() {
 	// --- INICIO DE SECCIÓN MODIFICADA (PASO 5.3) ---
 
 	// Cargar Recursos (Usando el ModelLoader)
-	hr = m_modelLoader.init(); // <-- AÑADIDO
+	hr = m_modelLoader.init();
 	if (FAILED(hr)) {
 		ERROR("Main", "InitDevice",
 			("Failed to initialize ModelLoader. HRESULT: " + std::to_string(hr)).c_str());
@@ -112,7 +112,7 @@ BaseApp::init() {
 	hr = m_modelLoader.loadFromFile("espada.obj", m_mesh); // <-- AÑADIDO
 	if (FAILED(hr)) {
 		ERROR("Main", "InitDevice",
-			("Failed to load model 'cube.obj'. HRESULT: " + std::to_string(hr)).c_str());
+			("Failed to load model 'espada.obj'. HRESULT: " + std::to_string(hr)).c_str());
 		return hr;
 	}
 
@@ -159,12 +159,7 @@ BaseApp::init() {
 		return hr;
 	}
 
-	// --- CÓDIGO DEL CUBO ANTIGUO ELIMINADO ---
-	// SimpleVertex vertices[] = { ... }; // <-- ELIMINADO
-	// unsigned int indices[] = { ... }; // <-- ELIMINADO
-	// for (unsigned int i = 0; i < 24; i++) { ... } // <-- ELIMINADO
-	// for (unsigned int i = 0; i < 36; i++) { ... } // <-- ELIMINADO
-	// --- FIN DE CÓDIGO ELIMINADO ---
+
 
 
 	// Create vertex buffer (Ahora usa m_mesh cargado desde el OBJ)
@@ -213,7 +208,7 @@ BaseApp::init() {
 		return hr;
 	}
 
-	hr = m_textureCube.init(m_device, "seafloor", ExtensionType::DDS);
+	hr = m_textureCube.init(m_device, "basecolor", ExtensionType::DDS);
 	// Load the Texture
 	if (FAILED(hr)) {
 		ERROR("Main", "InitDevice",
