@@ -53,8 +53,10 @@ BaseApp::init() {
 	hr = m_renderTargetView.init(m_device, m_backBuffer, DXGI_FORMAT_R8G8B8A8_UNORM);
 
 	if (FAILED(hr)) {
+		// --- INICIO DE LÍNEA CORREGIDA ---
 		ERROR("Main", "InitDevice",
 			("Failed to initialize RenderTargetView. HRESULT: " + std::to_string(hr)).c_str());
+		// --- FIN DE LÍNEA CORREGIDA ---
 		return hr;
 	}
 
@@ -94,17 +96,36 @@ BaseApp::init() {
 		return hr;
 	}
 
-	// Load Resources
+
+	// --- INICIO DE SECCIÓN MODIFICADA (PASO 5.3) ---
+
+	// Cargar Recursos (Usando el ModelLoader)
+	hr = m_modelLoader.init(); // <-- AÑADIDO
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to initialize ModelLoader. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
+
+	// Cargar la geometría desde un archivo OBJ
+	// NOTA: Debes crear "cube.obj" (ver siguiente paso)
+	hr = m_modelLoader.loadFromFile("espada.obj", m_mesh); // <-- AÑADIDO
+	if (FAILED(hr)) {
+		ERROR("Main", "InitDevice",
+			("Failed to load model 'cube.obj'. HRESULT: " + std::to_string(hr)).c_str());
+		return hr;
+	}
 
 
 	// Define the input layout
+	// (Esto ya lo modificamos en el Paso 2)
 	std::vector<D3D11_INPUT_ELEMENT_DESC> Layout;
 	D3D11_INPUT_ELEMENT_DESC position;
 	position.SemanticName = "POSITION";
 	position.SemanticIndex = 0;
 	position.Format = DXGI_FORMAT_R32G32B32_FLOAT;
 	position.InputSlot = 0;
-	position.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT /*0*/;
+	position.AlignedByteOffset = 0;
 	position.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	position.InstanceDataStepRate = 0;
 	Layout.push_back(position);
@@ -114,10 +135,21 @@ BaseApp::init() {
 	texcoord.SemanticIndex = 0;
 	texcoord.Format = DXGI_FORMAT_R32G32_FLOAT;
 	texcoord.InputSlot = 0;
-	texcoord.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT /*0*/;
+	texcoord.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
 	texcoord.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
 	texcoord.InstanceDataStepRate = 0;
 	Layout.push_back(texcoord);
+
+	D3D11_INPUT_ELEMENT_DESC normal;
+	normal.SemanticName = "NORMAL";
+	normal.SemanticIndex = 0;
+	normal.Format = DXGI_FORMAT_R32G32B32_FLOAT;
+	normal.InputSlot = 0;
+	normal.AlignedByteOffset = D3D11_APPEND_ALIGNED_ELEMENT;
+	normal.InputSlotClass = D3D11_INPUT_PER_VERTEX_DATA;
+	normal.InstanceDataStepRate = 0;
+	Layout.push_back(normal);
+
 
 	// Create the Shader Program
 	hr = m_shaderProgram.init(m_device, "MonacoEngine2.fx", Layout);
@@ -127,74 +159,15 @@ BaseApp::init() {
 		return hr;
 	}
 
-	// Create vertex buffer
-	SimpleVertex vertices[] =
-	{
-			{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT2(0.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
-			{ XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
+	// --- CÓDIGO DEL CUBO ANTIGUO ELIMINADO ---
+	// SimpleVertex vertices[] = { ... }; // <-- ELIMINADO
+	// unsigned int indices[] = { ... }; // <-- ELIMINADO
+	// for (unsigned int i = 0; i < 24; i++) { ... } // <-- ELIMINADO
+	// for (unsigned int i = 0; i < 36; i++) { ... } // <-- ELIMINADO
+	// --- FIN DE CÓDIGO ELIMINADO ---
 
-			{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(0.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
-			{ XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
 
-			{ XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
-			{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
-			{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT2(1.0f, 1.0f) },
-			{ XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
-
-			{ XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT2(1.0f, 1.0f) },
-			{ XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
-
-			{ XMFLOAT3(-1.0f, -1.0f, -1.0f), XMFLOAT2(0.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, -1.0f, -1.0f), XMFLOAT2(1.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, 1.0f, -1.0f), XMFLOAT2(1.0f, 1.0f) },
-			{ XMFLOAT3(-1.0f, 1.0f, -1.0f), XMFLOAT2(0.0f, 1.0f) },
-
-			{ XMFLOAT3(-1.0f, -1.0f, 1.0f), XMFLOAT2(0.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, -1.0f, 1.0f), XMFLOAT2(1.0f, 0.0f) },
-			{ XMFLOAT3(1.0f, 1.0f, 1.0f), XMFLOAT2(1.0f, 1.0f) },
-			{ XMFLOAT3(-1.0f, 1.0f, 1.0f), XMFLOAT2(0.0f, 1.0f) },
-	};
-
-	unsigned int indices[] =
-	{
-			3,1,0,
-			2,1,3,
-
-			6,4,5,
-			7,4,6,
-
-			11,9,8,
-			10,9,11,
-
-			14,12,13,
-			15,12,14,
-
-			19,17,16,
-			18,17,19,
-
-			22,20,21,
-			23,20,22
-	};
-
-	// Integrar los vertices a meshcomponent
-	for (unsigned int i = 0; i < 24; i++) {
-		m_mesh.m_vertex.push_back(vertices[i]);
-	}
-	m_mesh.m_numVertex = 24;
-
-	// Integrar los indices a meshcomponent
-	for (unsigned int i = 0; i < 36; i++) {
-		m_mesh.m_index.push_back(indices[i]);
-	}
-	m_mesh.m_numIndex = 36;
-
-	// Create vertex buffer
+	// Create vertex buffer (Ahora usa m_mesh cargado desde el OBJ)
 	hr = m_vertexBuffer.init(m_device, m_mesh, D3D11_BIND_VERTEX_BUFFER);
 
 	if (FAILED(hr)) {
@@ -203,7 +176,7 @@ BaseApp::init() {
 		return hr;
 	}
 
-	// Create index buffer
+	// Create index buffer (Ahora usa m_mesh cargado desde el OBJ)
 	hr = m_indexBuffer.init(m_device, m_mesh, D3D11_BIND_INDEX_BUFFER);
 
 	if (FAILED(hr)) {
@@ -211,6 +184,9 @@ BaseApp::init() {
 			("Failed to initialize IndexBuffer. HRESULT: " + std::to_string(hr)).c_str());
 		return hr;
 	}
+
+	// --- FIN DE SECCIÓN MODIFICADA ---
+
 
 	// Set primitive topology
 	m_deviceContext.IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
@@ -257,7 +233,7 @@ BaseApp::init() {
 	m_World = XMMatrixIdentity();
 
 	// Initialize the view matrix
-	XMVECTOR Eye = XMVectorSet(0.0f, 3.0f, -6.0f, 0.0f);
+	XMVECTOR Eye = XMVectorSet(0.0f, 3.0f, -15.0f, 0.0f);
 	XMVECTOR At = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 	XMVECTOR Up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 	m_View = XMMatrixLookAtLH(Eye, At, Up);
@@ -298,6 +274,7 @@ void BaseApp::update(float deltaTime)
 	m_vMeshColor.x = (sinf(t * 1.0f) + 1.0f) * 0.5f;
 	m_vMeshColor.y = (cosf(t * 3.0f) + 1.0f) * 0.5f;
 	m_vMeshColor.z = (sinf(t * 5.0f) + 1.0f) * 0.5f;
+	m_vMeshColor.w = 1.0f; // Asegurarse que el alpha sea 1
 
 	// Rotate cube around the origin
 	m_World = XMMatrixRotationY(t);
@@ -345,6 +322,7 @@ void
 BaseApp::destroy() {
 	if (m_deviceContext.m_deviceContext) m_deviceContext.m_deviceContext->ClearState();
 
+	m_modelLoader.destroy(); // <-- AÑADIDO (PASO 5.4)
 	m_samplerState.destroy();
 	m_textureCube.destroy();
 

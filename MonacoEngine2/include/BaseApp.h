@@ -13,6 +13,7 @@
 #include "MeshComponent.h"
 #include "Buffer.h"
 #include "SamplerState.h"
+#include "ModelLoader.h" // <-- AÑADIDO (PASO 5.1)
 
 class BaseApp {
 public:
@@ -49,6 +50,7 @@ private:
     Viewport            m_viewport;
     ShaderProgram       m_shaderProgram;
     MeshComponent       m_mesh;
+    ModelLoader         m_modelLoader; // <-- AÑADIDO (PASO 5.2)
 
     // === Buffers ===
     Buffer              m_vertexBuffer;

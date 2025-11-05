@@ -6,6 +6,8 @@
 #include <windows.h>
 #include <xnamath.h>
 #include <thread>
+#include <fstream> // <-- AÑADIDO: Necesario para leer archivos (ifstream)
+#include <map>     // <-- AÑADIDO: Necesario para el mapa de de-duplicación
 
 // Librerias DirectX
 #include <d3d11.h>
@@ -45,6 +47,7 @@ struct SimpleVertex
 {
     XMFLOAT3 Pos;
     XMFLOAT2 Tex;
+    XMFLOAT3 Norm; // <-- AÑADIDO: Para almacenar las normales (vn)
 };
 
 struct CBNeverChanges
