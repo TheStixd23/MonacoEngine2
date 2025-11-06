@@ -1,212 +1,172 @@
-# \# 🎮 MonacoEngine2
+Jajaja ok 😅, entiendo perfectamente — quieres algo más \*\*limpio, visual y profesional\*\*, como el del \*\*primer MonacoEngine\*\*, sin tanta decoración ni texto relleno.
 
-# 
 
-# !\[C++](https://img.shields.io/badge/C%2B%2B-DirectX11-blue?logo=cplusplus)
 
-# !\[Status](https://img.shields.io/badge/status-in%20development-yellow)
+Vamos a hacerlo \*\*idéntico en estilo\*\* al anterior, pero actualizado con lo nuevo (modelos `.obj` + texturas `.dds`).
 
-# !\[License](https://img.shields.io/badge/license-MIT-green)
+Aquí tienes una versión \*\*más sobria, estructurada y “de desarrollador”\*\* 👇
 
-# !\[Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
 
-# 
 
-# ---
+---
 
-# 
 
-# \## 🧩 Descripción general
 
-# 
+```markdown
 
-# \*\*MonacoEngine2\*\* es la evolución del proyecto \*\*MonacoEngine\*\*, desarrollada en \*\*C+++\*\* sobre \*\*DirectX 11\*\*, con mejoras clave para la carga de modelos OBJ y texturas DDS.  
+\# MonacoEngine2
 
-# Esta versión integra un cargador de modelos 3D (`ModelLoader`) que admite archivos OBJ y un sistema de texturas basado en archivos DDS, permitiendo escenas más ricas y configuraciones reales de motor gráfico.
 
-# 
 
-# Fue creado como proyecto académico para la asignatura \_Gráficas Computacionales 3D (Generación 2026-01)\_ en la Universidad Cuauhtémoc de Querétaro.
+Motor gráfico desarrollado en \*\*C++\*\* y \*\*DirectX 11\*\*, continuación directa del proyecto \*MonacoEngine\*.  
 
-# 
+Esta versión añade soporte para \*\*modelos .OBJ\*\* y \*\*texturas .DDS\*\*, integrados en un pipeline modular optimizado para pruebas de renderizado 3D.
 
-# ---
 
-# 
 
-# \## 🚀 Novedades en esta versión
+---
 
-# 
 
-# \- 📦 Soporte para cargar modelos 3D en formato \*\*.OBJ\*\*.  
 
-# \- 🖼️ Soporte para texturas en formato \*\*.DDS\*\* (DirectDraw Surface) para mejor compatibilidad y rendimiento.  
+\## Características principales
 
-# \- ✅ Log de inicialización y errores mejorado (usando macros `MESSAGE`, `ERROR`).  
 
-# \- 🧱 Integración del pipeline completo: malla, textura, sampler, shader, constante‐buffers.  
 
-# \- 🔄 Arquitectura modular, lista para extensión hacia iluminación, post‐procesado, etc.
+\- Sistema de inicialización de DirectX 11 completo (Device, SwapChain, Context, Viewport).  
 
-# 
+\- Carga y renderizado de modelos en formato \*\*.OBJ\*\*.  
 
-# ---
+\- Soporte para texturas \*\*.DDS\*\* con mapeo UV automático.  
 
-# 
+\- Estructura modular por componentes (ventana, shaders, buffers, malla, textura).  
 
-# \## ⚙️ Características principales
+\- Macros de depuración (`MESSAGE`, `ERROR`) para trazabilidad en consola.  
 
-# 
+\- Preparado para expansión hacia iluminación, cámara y materiales.
 
-# \- Arquitectura modular con clases dedicadas: ventana (`Window`), dispositivo (`Device`), contexto (`DeviceContext`), swap chain (`SwapChain`), texturas (`Texture`), shaders (`ShaderProgram`), mallas (`MeshComponent`), cargador de modelos (`ModelLoader`).  
 
-# \- Ciclo completo de renderizado en tiempo real: \*init → update → render → destroy\*.  
 
-# \- Carga dinámica de modelos e integración de buffers de vértices e índices desde mallas OBJ.  
+---
 
-# \- Texturas cargadas en formato DDS, aplicadas mediante `Texture` y `SamplerState`.  
 
-# \- Base sólida para iniciar proyectos de juegos o simulaciones gráficas en Windows.
 
-# 
+\## Estructura del proyecto
 
-# ---
 
-# 
 
-# \## 📁 Estructura del repositorio
+```
 
-# 
 
-# MonacoEngine2/
 
-# │
+MonacoEngine2/
 
-# ├── include/ # Cabeceras (.h) del motor
+│
 
-# ├── src/ # Código fuente (.cpp) del motor
+├── include/              # Cabeceras del motor
 
-# │ ├── Core/ # Lógica interna del motor
+├── src/                  # Código fuente
 
-# │ ├── Graphics/ # Grapics pipeline (Device, Context, SwapChain, Viewport...)
+│   ├── Core/             # Clases base (App, Window)
 
-# │ ├── Resources/ # Texturas, modelos, shaders
+│   ├── Graphics/         # Pipeline gráfico (Device, Context, SwapChain, etc.)
 
-# │ └── main.cpp # Punto de entrada
+│   ├── Resources/        # Cargadores de modelos, texturas y shaders
 
-# ├── assets/ # Modelos (.obj), texturas (.dds/.png), shaders (.fx)
+│   └── main.cpp          # Punto de entrada
 
-# ├── MonacoEngine2.sln # Solución de Visual Studio
+├── assets/               # Modelos (.obj) y texturas (.dds)
 
-# └── README.md
+└── MonacoEngine2.sln     # Solución de Visual Studio
 
-# 
 
-# yaml
 
-# Copiar código
+````
 
-# 
 
-# ---
 
-# 
+---
 
-# \## 🛠 Cómo compilar y ejecutar
 
-# 
 
-# 1\. \*\*Clonar el repositorio\*\*  
+\## Requisitos
 
-# &nbsp;  ```bash
 
-# &nbsp;  git clone https://github.com/TheStixd23/MonacoEngine2.git
 
-# Abrir la solución
+\- \*\*Windows 10 / 11\*\*  
 
-# 
+\- \*\*Visual Studio 2022\*\* con el SDK de \*\*DirectX 11\*\*  
 
-# Abre MonacoEngine2.sln con Visual Studio 2022 (o compatible).
+\- \*\*C++17\*\* o superior  
 
-# 
 
-# Asegúrate de tener instalado el Windows SDK con soporte DirectX 11.
 
-# 
+---
 
-# Construir y ejecutar
 
-# 
 
-# Selecciona configuración Debug o Release.
+\## Compilación y ejecución
 
-# 
 
-# Compila el proyecto y ejecuta. Aparecerá una ventana de renderizado con tu modelo OBJ cargado y textura DDS aplicada.
 
-# 
+1\. Clona el repositorio:
 
-# 🧠 Uso básico
+&nbsp;  ```bash
 
-# Reemplaza el archivo modelo: cambia espada.obj en la carpeta assets/ o indica otro modelo en BaseApp.
+&nbsp;  git clone https://github.com/TheStixd23/MonacoEngine2.git
 
-# 
+````
 
-# Sustituye la textura DDS: coloca tu .dds en assets/ y ajusta el nombre en Texture::init(..).
 
-# 
 
-# Extiende el motor: agrega iluminación, sistema de cámara, sombras, partículas, o editor visual.
+2\. Abre `MonacoEngine2.sln` en Visual Studio.
 
-# 
+3\. Compila y ejecuta el proyecto.
 
-# 🗺️ Roadmap
+4\. Se mostrará una ventana con el modelo y textura cargados.
 
-# &nbsp;Sistema de cámara 3D con control de movimiento y perspectiva.
 
-# 
 
-# &nbsp;Iluminación Phong / PBR y sombras en tiempo real.
+---
 
-# 
 
-# &nbsp;Post-procesado: HDR, Bloom, Tone Mapping.
 
-# 
+\## Créditos
 
-# &nbsp;Interfaz editor en tiempo real para manipular la escena.
 
-# 
 
-# &nbsp;Exportación multiplataforma más allá de Windows.
+Proyecto desarrollado por \*\*Hannin Steve Abarca Jacinto\*\*
 
-# 
+Universidad Cuauhtémoc de Querétaro – Ingeniería en Desarrollo de Videojuegos
 
-# 👤 Autor
+📧 \[hannin11.guerrero@gmail.com](mailto:hannin11.guerrero@gmail.com)
 
-# Hannin Steve Abarca Jacinto
 
-# Estudiante de Ingeniería en Desarrollo de Videojuegos
 
-# 📍 Universidad Cuauhtémoc de Querétaro
+---
 
-# 📧 hannin11.guerrero@gmail.com
 
-# 🔗 LinkedIn
 
-# 
+\## Licencia
 
-# 🧾 Licencia
 
-# Este proyecto está bajo la licencia MIT.
 
-# Copia, modificación o distribución permitidas con atribución al autor.
+Este proyecto se distribuye bajo la licencia \*\*MIT\*\*.
 
-# 
 
-# 💬 Agradecimientos
 
-# Desarrollado como proyecto académico para la asignatura Gráficas Computacionales 3D (2026-01).
+```
 
-# Gracias al profesorado y compañeros por su apoyo técnico y crítico durante el desarrollo del motor.
+
+
+---
+
+
+
+¿Quieres que también te haga la \*\*versión en inglés\*\*, como el del repo anterior (para que quede más profesional en GitHub)?  
+
+Puedo dejártelo igual de limpio pero con estilo “readme de motor gráfico open-source”.
+
+```
+
+
 
