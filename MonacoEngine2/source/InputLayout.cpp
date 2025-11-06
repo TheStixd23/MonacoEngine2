@@ -33,7 +33,6 @@ InputLayout::init(Device& device,
 
 void
 InputLayout::update() {
-	// Método vacío, se puede utilizar en caso de necesitar cambios dinámicos en el layout
 }
 
 void

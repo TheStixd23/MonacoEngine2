@@ -21,7 +21,6 @@ Texture::init(Device& device,
 	case DDS: {
 		m_textureName = textureName + ".dds";
 
-		// Cargar textura DDS
 		hr = D3DX11CreateShaderResourceViewFromFile(
 			device.m_device,
 			m_textureName.c_str(),
@@ -108,7 +107,7 @@ Texture::init(Device& device, Texture& textureRef, DXGI_FORMAT format) {
 		ERROR("Texture", "init", "Texture is null.");
 		return E_POINTER;
 	}
-	// Create Shader Resource View
+
 	D3D11_SHADER_RESOURCE_VIEW_DESC srvDesc = {};
 	srvDesc.Format = format;
 	srvDesc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;

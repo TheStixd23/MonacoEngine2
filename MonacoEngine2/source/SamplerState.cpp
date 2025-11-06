@@ -9,7 +9,6 @@ SamplerState::init(Device& device) {
         return E_POINTER;
     }
 
-    // Create the sample state
     D3D11_SAMPLER_DESC sampDesc;
     ZeroMemory(&sampDesc, sizeof(sampDesc));
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
@@ -32,7 +31,6 @@ SamplerState::init(Device& device) {
 
 void
 SamplerState::update() {
-    //No hay logica de actualizacion 
 }
 
 void
