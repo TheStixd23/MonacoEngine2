@@ -1,7 +1,3 @@
-¡Absolutamente\! Basado en los archivos del repositorio `MonacoEngine` y usando la estructura del `README.md` que me diste como plantilla, aquí tienes la documentación para ese proyecto:
-
------
-
 # 🛠️ MonacoEngine — Motor Gráfico (Proyecto de Gráficas 3D)
 
 ## 📋 Resumen
