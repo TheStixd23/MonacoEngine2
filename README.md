@@ -137,5 +137,6 @@ El motor utiliza un conjunto de clases auxiliares (`Window`, `Device`, `DeviceCo
 -----
 
 ## 📚 Diagrama uml
+<img width="797" height="634" alt="Diagrama general" src="https://github.com/user-attachments/assets/6d01b8bf-7005-4cb4-961e-d4f3bc82003a" />
 
-![Diagrama General UML](MonacoEngine2/Diagrama general.png)
+
