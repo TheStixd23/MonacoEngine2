@@ -132,3 +132,10 @@ El motor utiliza un conjunto de clases auxiliares (`Window`, `Device`, `DeviceCo
   * **`SwapChain`**: Clase crucial que maneja no solo el `IDXGISwapChain`, sino también la creación inicial del `Device` y `DeviceContext` de D3D11, incluyendo la configuración de 4x MSAA.
   * **`ShaderProgram`**: Gestiona la compilación de shaders HLSL (`.fx`) y la creación del `InputLayout` asociado.
   * **`Prerequisites.h`**: El archivo de cabecera más importante. Incluye todas las librerías necesarias (Windows, D3D11, D3DX11, XNA), define macros (`SAFE_RELEASE`, `MESSAGE`, `ERROR`) y las estructuras de datos clave: `SimpleVertex`, `CBNeverChanges`, `CBChangeOnResize`, `CBChangesEveryFrame`.
+
+
+-----
+
+## 📚 Diagrama uml
+
+![Diagrama General UML](MonacoEngine2/Diagrama general.png)
