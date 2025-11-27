@@ -1,7 +1,6 @@
 // Definimos esto ANTES de incluir el header para que la librería implemente su código aquí
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
-
 #include "Texture.h"
 #include "Device.h"
 #include "DeviceContext.h"
