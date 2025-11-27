@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Prerequisites.h"
 #include "Window.h"
 #include "Device.h"
