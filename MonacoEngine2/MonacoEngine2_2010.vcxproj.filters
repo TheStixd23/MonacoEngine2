@@ -18,6 +18,27 @@
     <Filter Include="source">
       <UniqueIdentifier>{a24a6293-d0fe-4e83-a141-c826f47417ba}</UniqueIdentifier>
     </Filter>
+<<<<<<< Updated upstream
+=======
+    <Filter Include="include\Patterns">
+      <UniqueIdentifier>{e73fbacd-95e1-489d-b0eb-a389ad09ffb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Utilities">
+      <UniqueIdentifier>{f10bf76c-874e-4752-a7ef-b4663577c901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\ECS">
+      <UniqueIdentifier>{b3f547cd-53ad-4f1f-acd9-48bb7a9462df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Utilities\Memory">
+      <UniqueIdentifier>{1fc14e11-5c77-4579-9119-0ed17d258bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Utilities\Vector">
+      <UniqueIdentifier>{dddb329b-b814-48b2-bd72-04dfb0d81356}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ECS">
+      <UniqueIdentifier>{506b9534-ea5c-432c-b40d-0f3de4897caa}</UniqueIdentifier>
+    </Filter>
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonacoEngine2.cpp">
@@ -65,6 +86,9 @@
     <ClCompile Include="source\ModelLoader.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="source\ECS\Actor.cpp">
+      <Filter>source\ECS</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="MonacoEngine2.fx">
@@ -79,9 +103,6 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
     <ClInclude Include="include\Window.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Prerequisites.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\BaseApp.h">
@@ -100,9 +121,6 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\InputLayout.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MeshComponent.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\RenderTargetView.h">
@@ -126,11 +144,67 @@
     <ClInclude Include="include\Viewport.h">
       <Filter>include</Filter>
     </ClInclude>
+<<<<<<< Updated upstream
     <ClInclude Include="include\ModelLoader.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\stb_image.h">
       <Filter>include</Filter>
+=======
+    <ClInclude Include="include\IResource.h">
+      <Filter>include\Patterns</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ResourceManager.h">
+      <Filter>include\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ECS\Actor.h">
+      <Filter>include\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ECS\Component.h">
+      <Filter>include\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ECS\Entity.h">
+      <Filter>include\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ECS\Transform.h">
+      <Filter>include\ECS</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stb_image.h">
+      <Filter>include\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MeshComponent.h">
+      <Filter>include\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Prerequisites.h">
+      <Filter>include\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Model3D.h">
+      <Filter>include\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Memory\TSharedPointer.h">
+      <Filter>include\Utilities\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Memory\TStaticPtr.h">
+      <Filter>include\Utilities\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Memory\TUniquePtr.h">
+      <Filter>include\Utilities\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Memory\TWeakPointer.h">
+      <Filter>include\Utilities\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Vectors\Vector2.h">
+      <Filter>include\Utilities\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Vectors\Vector3.h">
+      <Filter>include\Utilities\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Vectors\Vector4.h">
+      <Filter>include\Utilities\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EngineUtilities\Utilities\EngineMath.h">
+      <Filter>include\Utilities</Filter>
+>>>>>>> Stashed changes
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
