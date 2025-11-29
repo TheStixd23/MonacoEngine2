@@ -1,4 +1,3 @@
-
 #include "SamplerState.h"
 #include "Device.h"
 #include "DeviceContext.h"
@@ -10,7 +9,8 @@ SamplerState::init(Device& device) {
         return E_POINTER;
     }
 
-    D3D11_SAMPLER_DESC sampDesc = {};
+    D3D11_SAMPLER_DESC sampDesc;
+    ZeroMemory(&sampDesc, sizeof(sampDesc));
     sampDesc.Filter = D3D11_FILTER_MIN_MAG_MIP_LINEAR;
     sampDesc.AddressU = D3D11_TEXTURE_ADDRESS_WRAP;
     sampDesc.AddressV = D3D11_TEXTURE_ADDRESS_WRAP;
@@ -26,23 +26,24 @@ SamplerState::init(Device& device) {
     }
 
     return S_OK;
+
 }
 
 void
 SamplerState::update() {
-    // No hay lógica de actualización para un sampler en este caso.
 }
 
 void
 SamplerState::render(DeviceContext& deviceContext,
     unsigned int StartSlot,
-    unsigned int NumSamplers) {
+    unsigned int NumSampler) {
+
     if (!m_sampler) {
         ERROR("SamplerState", "render", "SamplerState is nullptr");
         return;
     }
 
-    deviceContext.PSSetSamplers(StartSlot, NumSamplers, &m_sampler);
+    deviceContext.PSSetSamplers(StartSlot, NumSampler, &m_sampler);
 }
 
 void

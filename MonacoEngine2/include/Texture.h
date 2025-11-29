@@ -1,20 +1,19 @@
 #pragma once
 #include "Prerequisites.h"
+#include "Device.h"
+#include "DeviceContext.h"
 
 class Device;
 class DeviceContext;
 
-/**
- * @class Texture
- * @brief Encapsula una textura 2D en Direct3D 11, incluyendo su recurso y vista como Shader Resource.
- *
- * Esta clase administra texturas que pueden provenir de:
- * - Archivos de imagen (png, jpg, etc.).
- * - Texturas creadas en memoria (RTV, DSV, UAV).
- * - Copias a partir de otra textura.
- *
- * Proporciona métodos para inicialización, actualización, uso en shaders y destrucción.
- */
+ /**
+  * @class Texture
+  * @brief Encapsula una textura 2D en Direct3D 11, incluyendo su recurso y vista como Shader Resource.
+  *
+  * Proporciona métodos para inicialización, actualización, uso en shaders y destrucción.
+  *
+  * @author Hannin Abarca
+  */
 class
     Texture {
 public:
