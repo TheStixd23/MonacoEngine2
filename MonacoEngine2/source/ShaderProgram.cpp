@@ -20,20 +20,21 @@ ShaderProgram::init(Device& device,
 		return E_INVALIDARG;
 	}
 	m_shaderFileName = fileName;
+	// Create the Vertex Shader
 	HRESULT hr = CreateShader(device, ShaderType::VERTEX_SHADER);
 	if (FAILED(hr)) {
 		ERROR("ShaderProgram", "init", "Failed to create vertex shader.");
 		return hr;
 	}
 
-
+	// Create the Input Layout
 	hr = CreateInputLayout(device, Layout);
 	if (FAILED(hr)) {
 		ERROR("ShaderProgram", "init", "Failed to create input layout.");
 		return hr;
 	}
 
-
+	// Create the Pixel Shader
 	hr = CreateShader(device, ShaderType::PIXEL_SHADER);
 	if (FAILED(hr)) {
 		ERROR("ShaderProgram", "init", "Failed to create pixel shader.");
@@ -87,7 +88,7 @@ ShaderProgram::CreateShader(Device& device, ShaderType type) {
 	const char* shaderEntryPoint = (type == ShaderType::PIXEL_SHADER) ? "PS" : "VS";
 	const char* shaderModel = (type == ShaderType::PIXEL_SHADER) ? "ps_4_0" : "vs_4_0";
 
-
+	// Compile the shader from file
 	hr = CompileShaderFromFile(m_shaderFileName.data(),
 		shaderEntryPoint,
 		shaderModel,
@@ -99,6 +100,7 @@ ShaderProgram::CreateShader(Device& device, ShaderType type) {
 		return hr;
 	}
 
+	// Create the shader object
 	if (type == PIXEL_SHADER) {
 		hr = device.CreatePixelShader(shaderData->GetBufferPointer(),
 			shaderData->GetBufferSize(),
@@ -119,6 +121,7 @@ ShaderProgram::CreateShader(Device& device, ShaderType type) {
 		return hr;
 	}
 
+	// Store the compiled shader data
 	if (type == PIXEL_SHADER) {
 		SAFE_RELEASE(m_pixelShaderData);
 		m_pixelShaderData = shaderData;
@@ -165,7 +168,10 @@ ShaderProgram::CompileShaderFromFile(char* szFileName,
 
 	DWORD dwShaderFlags = D3DCOMPILE_ENABLE_STRICTNESS;
 #if defined( DEBUG ) || defined( _DEBUG )
-
+	// Set the D3DCOMPILE_DEBUG flag to embed debug information in the shaders.
+	// Setting this flag improves the shader debugging experience, but still allows 
+	// the shaders to be optimized and to run exactly the way they will run in 
+	// the release configuration of this program.
 	dwShaderFlags |= D3DCOMPILE_DEBUG;
 #endif
 	ID3DBlob* pErrorBlob;
