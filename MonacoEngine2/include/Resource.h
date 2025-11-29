@@ -1,15 +1,7 @@
 //{{NO_DEPENDENCIES}}
-// Archivo de inclusión de recursos generado por Microsoft Visual C++.
-// Usado por MonacoEngine2.rc
+// Microsoft Visual C++ generated include file.
+// Used by MonacoEngine.rc
 //
-
-/*
- * @file resource.h
- * @brief Define identificadores de recursos usados por MonacoEngine2.rc.
- *
- * Contiene IDs para menús, iconos, diálogos y controles de la aplicación.
- * Este archivo es generado automáticamente por Visual Studio.
- */
 
 #define IDS_APP_TITLE           103
 
@@ -23,9 +15,8 @@
 #define IDC_TUTORIAL1           109
 #define IDC_MYICON              2
 #define IDC_STATIC              -1
-
-// Valores predeterminados para nuevos elementos
-//
+// Next default values for new objects
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 
@@ -36,5 +27,3 @@
 #define _APS_NEXT_SYMED_VALUE       110
 #endif
 #endif
-
-

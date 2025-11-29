@@ -4,9 +4,10 @@
 
 HRESULT
 Window::init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc) {
-
+    // Store  instance of the class
     m_hInst = hInstance;
 
+    // Register class
     WNDCLASSEX wcex;
     wcex.cbSize = sizeof(WNDCLASSEX);
     wcex.style = CS_HREDRAW | CS_VREDRAW;
@@ -23,6 +24,7 @@ Window::init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc) {
     if (!RegisterClassEx(&wcex))
         return E_FAIL;
 
+    // Create window
     RECT rc = { 0, 0, 1200, 950 };
     m_rect = rc;
 
@@ -50,6 +52,7 @@ Window::init(HINSTANCE hInstance, int nCmdShow, WNDPROC wndproc) {
 
     UpdateWindow(m_hWnd);
 
+    // Setup Viewport Dimensions
     GetClientRect(m_hWnd, &m_rect);
     m_width = m_rect.right - m_rect.left;
     m_height = m_rect.bottom - m_rect.top;

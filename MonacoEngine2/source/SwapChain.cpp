@@ -1,3 +1,4 @@
+
 #include "SwapChain.h"
 #include "Device.h"
 #include "DeviceContext.h"
@@ -9,7 +10,7 @@ SwapChain::init(Device& device,
     DeviceContext& deviceContext,
     Texture& backBuffer,
     Window window) {
-
+    // Check if Window is valid
     if (!window.m_hWnd) {
         ERROR("SwapChain", "init", "Invalid window handle. (m_hWnd is nullptr)");
         return E_POINTER;
@@ -17,6 +18,7 @@ SwapChain::init(Device& device,
 
     HRESULT hr = S_OK;
 
+    // Create the swap chain device and context
     unsigned int createDeviceFlags = 0;
 #ifdef _DEBUG
     createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
@@ -36,6 +38,7 @@ SwapChain::init(Device& device,
     };
     unsigned int numFeatureLevels = ARRAYSIZE(featureLevels);
 
+    // Create the device
     for (unsigned int driverTypeIndex = 0; driverTypeIndex < numDriverTypes; driverTypeIndex++) {
         D3D_DRIVER_TYPE driverType = driverTypes[driverTypeIndex];
         hr = D3D11CreateDevice(nullptr,
@@ -61,6 +64,7 @@ SwapChain::init(Device& device,
         return hr;
     }
 
+    // Config the MSAA settings
     m_sampleCount = 4;
     hr = device.m_device->CheckMultisampleQualityLevels(DXGI_FORMAT_R8G8B8A8_UNORM,
         m_sampleCount,
@@ -71,7 +75,7 @@ SwapChain::init(Device& device,
         return hr;
     }
 
-
+    // Config the swap chain description
     DXGI_SWAP_CHAIN_DESC sd;
     memset(&sd, 0, sizeof(sd));
     sd.BufferCount = 1;
@@ -87,7 +91,7 @@ SwapChain::init(Device& device,
     sd.SampleDesc.Count = m_sampleCount;
     sd.SampleDesc.Quality = m_qualityLevels - 1;
 
-
+    // Get the DXGI factory
     hr = device.m_device->QueryInterface(__uuidof(IDXGIDevice), (void**)&m_dxgiDevice);
     if (FAILED(hr)) {
         ERROR("SwapChain", "init",
@@ -110,7 +114,7 @@ SwapChain::init(Device& device,
         return hr;
     }
 
-
+    // Create the swap chain
     hr = m_dxgiFactory->CreateSwapChain(device.m_device, &sd, &m_swapChain);
 
     if (FAILED(hr)) {
@@ -119,7 +123,7 @@ SwapChain::init(Device& device,
         return hr;
     }
 
-
+    // Get the backbuffer
     hr = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D),
         reinterpret_cast<void**>(&backBuffer));
     if (FAILED(hr)) {
