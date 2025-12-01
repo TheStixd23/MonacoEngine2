@@ -98,11 +98,11 @@ BaseApp::init() {
 	if (!m_cyberGun.isNull()) {
 		// Crear vertex buffer y index buffer para el pistol
 		std::vector<MeshComponent> cyberGunMeshes;
-		m_model = new Model3D("CyberGun.fbx", ModelType::FBX);
+		m_model = new Model3D("AnyConv.com__Espada.fbx", ModelType::FBX);
 		cyberGunMeshes = m_model->GetMeshes();
 
 		std::vector<Texture> cyberGunTextures;
-		hr = m_cyberGunAlbedo.init(m_device, "base.tga", ExtensionType::PNG);
+		hr = m_cyberGunAlbedo.init(m_device, "crucible_baseColor", ExtensionType::PNG);
 		// Load the Texture
 		if (FAILED(hr)) {
 			ERROR("Main", "InitDevice",

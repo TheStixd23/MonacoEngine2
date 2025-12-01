@@ -33,6 +33,9 @@
     <Filter Include="include\Utilities\Vector">
       <UniqueIdentifier>{48f82393-72d3-4867-9c51-766b7936e8fb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\ESC">
+      <UniqueIdentifier>{a8b88b99-51ef-498e-a58b-189993523ebc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonacoEngine2.cpp">
@@ -77,11 +80,11 @@
     <ClCompile Include="source\Viewport.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="source\ECS\Actor.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
     <ClCompile Include="source\Model3D.cpp">
       <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ECS\Actor.cpp">
+      <Filter>source\ESC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
