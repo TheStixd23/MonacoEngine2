@@ -1,5 +1,12 @@
 #pragma once
 #include "Prerequisites.h"
+
+// --- MODIFICACIÓN: Includes de ImGui ---
+#include "ImGui/imgui.h"
+#include "ImGui/imgui_impl_win32.h"
+#include "ImGui/imgui_impl_dx11.h"
+// ---------------------------------------
+
 #include "Window.h"
 #include "Device.h"
 #include "DeviceContext.h"
@@ -42,28 +49,28 @@ private:
 
 private:
 	Window                              m_window;
-	Device															m_device;
-	DeviceContext												m_deviceContext;
+	Device								m_device;
+	DeviceContext						m_deviceContext;
 	SwapChain                           m_swapChain;
 	Texture                             m_backBuffer;
-	RenderTargetView									  m_renderTargetView;
+	RenderTargetView					m_renderTargetView;
 	Texture                             m_depthStencil;
-	DepthStencilView									  m_depthStencilView;
+	DepthStencilView					m_depthStencilView;
 	Viewport                            m_viewport;
-	ShaderProgram												m_shaderProgram;
-	//MeshComponent												m_mesh;
-	//Buffer															m_vertexBuffer;
-	//Buffer															m_indexBuffer;
-	Buffer															m_cbNeverChanges;
-	Buffer															m_cbChangeOnResize;
-	//Buffer															m_cbChangesEveryFrame;
-	Texture 														m_cyberGunAlbedo;
-	//SamplerState												m_samplerState;
+	ShaderProgram						m_shaderProgram;
+	//MeshComponent						m_mesh;
+	//Buffer							m_vertexBuffer;
+	//Buffer							m_indexBuffer;
+	Buffer								m_cbNeverChanges;
+	Buffer								m_cbChangeOnResize;
+	//Buffer							m_cbChangesEveryFrame;
+	Texture 							m_cyberGunAlbedo;
+	//SamplerState						m_samplerState;
 
-	//XMMATRIX                            m_World;
+	//XMMATRIX                          m_World;
 	XMMATRIX                            m_View;
 	XMMATRIX                            m_Projection;
-	//XMFLOAT4                            m_vMeshColor;// (0.7f, 0.7f, 0.7f, 1.0f);
+	//XMFLOAT4                          m_vMeshColor;// (0.7f, 0.7f, 0.7f, 1.0f);
 
 	std::vector<EU::TSharedPointer<Actor>> m_actors;
 	EU::TSharedPointer<Actor> m_cyberGun;
@@ -72,7 +79,7 @@ private:
 	Model3D* m_model;
 
 
-	CBChangeOnResize										cbChangesOnResize;
-	CBNeverChanges											cbNeverChanges;
-	//CBChangesEveryFrame									cb;
+	CBChangeOnResize					cbChangesOnResize;
+	CBNeverChanges						cbNeverChanges;
+	//CBChangesEveryFrame				cb;
 };

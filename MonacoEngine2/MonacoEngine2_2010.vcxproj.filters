@@ -36,6 +36,12 @@
     <Filter Include="source\ESC">
       <UniqueIdentifier>{a8b88b99-51ef-498e-a58b-189993523ebc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\ImGui">
+      <UniqueIdentifier>{73e6fbc0-e9a3-410d-a18a-9ad2b3deea09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ImGui">
+      <UniqueIdentifier>{c06bdc59-745a-4c54-9779-a0edbaa5d446}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MonacoEngine2.cpp">
@@ -85,6 +91,27 @@
     </ClCompile>
     <ClCompile Include="source\ECS\Actor.cpp">
       <Filter>source\ESC</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui.cpp">
+      <Filter>source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui_demo.cpp">
+      <Filter>source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui_draw.cpp">
+      <Filter>source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui_impl_dx11.cpp">
+      <Filter>source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui_impl_win32.cpp">
+      <Filter>source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui_tables.cpp">
+      <Filter>source\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGui\imgui_widgets.cpp">
+      <Filter>source\ImGui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +221,30 @@
     </ClInclude>
     <ClInclude Include="include\stb_image.h">
       <Filter>include\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imconfig.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imgui.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imgui_impl_dx11.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imgui_impl_win32.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imgui_internal.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imstb_rectpack.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imstb_textedit.h">
+      <Filter>include\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImGui\imstb_truetype.h">
+      <Filter>include\ImGui</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
