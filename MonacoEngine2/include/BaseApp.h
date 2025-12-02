@@ -59,13 +59,13 @@ private:
     Buffer                              m_cbNeverChanges;
     Buffer                              m_cbChangeOnResize;
 
-    Texture                             m_cyberGunAlbedo;
+    Texture                             m_EspadaAlbedo;
 
     XMMATRIX                            m_View;
     XMMATRIX                            m_Projection;
 
     std::vector<EU::TSharedPointer<Actor>> m_actors;
-    EU::TSharedPointer<Actor> m_cyberGun;
+    EU::TSharedPointer<Actor> m_Espada;
 
     Model3D* m_model;
 

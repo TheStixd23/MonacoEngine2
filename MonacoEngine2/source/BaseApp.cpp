@@ -218,25 +218,25 @@ HRESULT BaseApp::init() {
     hr = m_viewport.init(m_window); if (FAILED(hr)) return hr;
 
     // 2. Cargar Recursos y Actores
-    m_cyberGun = EU::MakeShared<Actor>(m_device);
-    if (!m_cyberGun.isNull()) {
+    m_Espada = EU::MakeShared<Actor>(m_device);
+    if (!m_Espada.isNull()) {
         m_model = new Model3D("AnyConv.com__Espada.fbx", ModelType::FBX);
-        hr = m_cyberGunAlbedo.init(m_device, "crucible_baseColor", ExtensionType::PNG);
+        hr = m_EspadaAlbedo.init(m_device, "crucible_baseColor", ExtensionType::PNG);
 
         if (SUCCEEDED(hr)) {
             std::vector<Texture> textures;
-            textures.push_back(m_cyberGunAlbedo);
-            m_cyberGun->setMesh(m_device, m_model->GetMeshes());
-            m_cyberGun->setTextures(textures);
-            m_cyberGun->setName("Doom Sword");
+            textures.push_back(m_EspadaAlbedo);
+            m_Espada->setMesh(m_device, m_model->GetMeshes());
+            m_Espada->setTextures(textures);
+            m_Espada->setName("Doom Sword");
 
             // Posición inicial
-            m_cyberGun->getComponent<Transform>()->setTransform(
+            m_Espada->getComponent<Transform>()->setTransform(
                 EU::Vector3(2.0f, -4.90f, 11.60f),
                 EU::Vector3(-0.60f, 3.0f, -0.20f),
                 EU::Vector3(1.0f, 1.0f, 1.0f)
             );
-            m_actors.push_back(m_cyberGun);
+            m_actors.push_back(m_Espada);
         }
     }
 
