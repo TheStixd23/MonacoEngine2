@@ -7,7 +7,7 @@
  * entre los datos de los vértices en la CPU (Vertex Buffer) y lo que espera
  * recibir el Vertex Shader en la GPU.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

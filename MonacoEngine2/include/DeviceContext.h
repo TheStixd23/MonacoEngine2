@@ -7,7 +7,7 @@
  * Es responsable de enviar comandos de renderizado a la GPU, como configurar estados,
  * enlazar recursos (shaders, buffers) y emitir las llamadas de dibujo (Draw calls).
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

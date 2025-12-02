@@ -6,7 +6,7 @@
  * Encapsula un ID3D11RenderTargetView, que permite utilizar un recurso de textura
  * como destino de salida para el pipeline de renderizado (Output Merger Stage).
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

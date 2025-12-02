@@ -6,7 +6,7 @@
  * Esta clase encapsula la creación y el manejo de la vista de Depth-Stencil (DSV),
  * fundamental para que el Output Merger Stage realice pruebas de profundidad y estencilado.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

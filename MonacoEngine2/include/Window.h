@@ -6,7 +6,7 @@
  * Encapsula la creación y gestión de una ventana del sistema operativo (Win32).
  * Se encarga de registrar la clase de ventana, crear la instancia y gestionar sus dimensiones.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

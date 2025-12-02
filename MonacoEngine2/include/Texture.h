@@ -7,7 +7,7 @@
  * de imagen (usando stb_image o similar), texturas creadas dinámicamente (para Render Targets/Depth Buffers)
  * y vistas de recursos de shader (SRV) para su uso en el pipeline gráfico.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

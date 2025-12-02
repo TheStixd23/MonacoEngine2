@@ -6,7 +6,7 @@
  * Sistema centralizado para la gestión del ciclo de vida de los recursos (Texturas, Modelos, Shaders, etc.).
  * Implementa el patrón Singleton para acceso global y el patrón Flyweight para evitar duplicidad de recursos en memoria.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

@@ -6,7 +6,7 @@
  * Encapsula un estado de muestreo (Sampler State) de Direct3D 11, que define
  * cómo se comportan las operaciones de lectura de texturas (filtrado, modo de dirección, etc.).
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

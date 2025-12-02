@@ -6,7 +6,7 @@
  * Encapsula la estructura D3D11_VIEWPORT, que define el área rectangular
  * de la ventana (o render target) donde se rasterizará la escena.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

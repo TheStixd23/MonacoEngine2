@@ -7,7 +7,7 @@
  * es actuar como una "fábrica" para crear recursos (texturas, buffers, shaders, vistas)
  * y gestionar la vida del dispositivo gráfico principal.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

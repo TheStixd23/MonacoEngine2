@@ -6,7 +6,7 @@
  * Componente del sistema ECS encargado de almacenar los datos geométricos de una entidad.
  * Contiene la información cruda de vértices e índices necesaria para construir buffers de GPU.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

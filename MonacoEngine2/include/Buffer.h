@@ -6,7 +6,7 @@
  * Encapsula la creación, actualización y vinculación de buffers (Vertex, Index, Constant)
  * facilitando la interacción con la API de D3D11.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

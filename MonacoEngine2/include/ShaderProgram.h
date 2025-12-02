@@ -6,7 +6,7 @@
  * Gestiona la carga, compilación y activación de shaders (Vertex y Pixel) en DirectX 11.
  * También se encarga de la creación del Input Layout asociado al Vertex Shader.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

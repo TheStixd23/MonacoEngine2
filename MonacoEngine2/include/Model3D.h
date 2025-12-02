@@ -7,7 +7,7 @@
  * Soporta principalmente el formato FBX mediante el uso del SDK de Autodesk FBX,
  * procesando nodos, mallas y materiales para convertirlos en componentes del motor.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

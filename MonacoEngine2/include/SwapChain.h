@@ -7,7 +7,7 @@
  * los cuadros renderizados en la ventana de la aplicación, gestionando el doble buffer
  * y la sincronización vertical.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
 #include "Prerequisites.h"

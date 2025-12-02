@@ -8,7 +8,7 @@
  * utilidades propias del motor (Vectores, Punteros Inteligentes).
  * También define macros de depuración y estructuras de datos fundamentales para los shaders.
  *
- * @author MonacoEngine Team
+ * @author Hannin Abarca
  */
 
  // Librerias STD
