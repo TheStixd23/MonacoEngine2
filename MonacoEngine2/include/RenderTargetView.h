@@ -88,9 +88,9 @@ public:
      * @param ClearColor        Array de 4 floats (RGBA) con el color de fondo para limpiar.
      */
     void render(DeviceContext& deviceContext,
-        DepthStencilView& depthStencilView,
-        unsigned int numViews,
-        const float ClearColor[4]);
+                DepthStencilView& depthStencilView,
+                unsigned int numViews,
+                const float ClearColor[4]);
 
     /**
      * @brief Activa el Render Target en el pipeline sin limpiar ni usar Depth Stencil.

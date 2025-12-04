@@ -48,8 +48,8 @@ public:
      * @return HRESULT @c S_OK si todo fue exitoso; código de error en caso contrario.
      */
     HRESULT init(Device& device,
-        const std::string& fileName,
-        std::vector<D3D11_INPUT_ELEMENT_DESC> Layout);
+                const std::string& fileName,
+                std::vector<D3D11_INPUT_ELEMENT_DESC> Layout);
 
     /**
      * @brief Método de actualización placeholder.
@@ -87,7 +87,7 @@ public:
      * @return HRESULT @c S_OK si tiene éxito.
      */
     HRESULT CreateInputLayout(Device& device,
-        std::vector<D3D11_INPUT_ELEMENT_DESC> Layout);
+                              std::vector<D3D11_INPUT_ELEMENT_DESC> Layout);
 
     /**
      * @brief Crea un shader específico desde el archivo almacenado en m_shaderFileName.
@@ -120,9 +120,9 @@ public:
      * @return HRESULT @c S_OK si la compilación es exitosa.
      */
     HRESULT CompileShaderFromFile(char* szFileName,
-        LPCSTR szEntryPoint,
-        LPCSTR szShaderModel,
-        ID3DBlob** ppBlobOut);
+                                  LPCSTR szEntryPoint,
+                                  LPCSTR szShaderModel,
+                                  ID3DBlob** ppBlobOut);
 
 public:
     /** @brief Puntero al Vertex Shader de D3D11. */

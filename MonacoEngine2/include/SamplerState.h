@@ -73,8 +73,8 @@ public:
      * @pre @c m_sampler debe haberse creado con init().
      */
     void render(DeviceContext& deviceContext,
-        unsigned int StartSlot,
-        unsigned int NumSamplers);
+                unsigned int StartSlot,
+                unsigned int NumSamplers);
 
     /**
      * @brief Libera el recurso @c ID3D11SamplerState.

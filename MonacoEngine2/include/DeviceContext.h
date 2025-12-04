@@ -66,8 +66,8 @@ public:
      * @param ppShaderResourceViews Array de punteros a las vistas de recurso (SRV).
      */
     void PSSetShaderResources(unsigned int StartSlot,
-        unsigned int NumViews,
-        ID3D11ShaderResourceView* const* ppShaderResourceViews);
+                              unsigned int NumViews,
+                              ID3D11ShaderResourceView* const* ppShaderResourceViews);
 
     /**
      * @brief Establece el Input Layout activo en la etapa Input Assembler (IA).
@@ -85,8 +85,8 @@ public:
      * @param NumClassInstances Número de instancias de clase.
      */
     void VSSetShader(ID3D11VertexShader* pVertexShader,
-        ID3D11ClassInstance* const* ppClassInstances,
-        unsigned int NumClassInstances);
+                    ID3D11ClassInstance* const* ppClassInstances,
+                    unsigned int NumClassInstances);
 
     /**
      * @brief Asigna un Pixel Shader (PS) al pipeline.
@@ -96,8 +96,8 @@ public:
      * @param NumClassInstances Número de instancias de clase.
      */
     void PSSetShader(ID3D11PixelShader* pPixelShader,
-        ID3D11ClassInstance* const* ppClassInstances,
-        unsigned int NumClassInstances);
+                    ID3D11ClassInstance* const* ppClassInstances,
+                    unsigned int NumClassInstances);
 
     /**
      * @brief Actualiza datos en un recurso de GPU (Buffer o Textura) desde la CPU.
@@ -110,11 +110,11 @@ public:
      * @param SrcDepthPitch Tamaño de profundidad en bytes (para texturas 3D).
      */
     void UpdateSubresource(ID3D11Resource* pDstResource,
-        unsigned int DstSubresource,
-        const D3D11_BOX* pDstBox,
-        const void* pSrcData,
-        unsigned int SrcRowPitch,
-        unsigned int SrcDepthPitch);
+                            unsigned int DstSubresource,
+                            const D3D11_BOX* pDstBox,
+                            const void* pSrcData,
+                            unsigned int SrcRowPitch,
+                            unsigned int SrcDepthPitch);
 
     /**
      * @brief Enlaza buffers de vértices a la etapa Input Assembler (IA).
@@ -126,10 +126,10 @@ public:
      * @param pOffsets Array con el desplazamiento (offset) inicial en cada buffer.
      */
     void IASetVertexBuffers(unsigned int StartSlot,
-        unsigned int NumBuffers,
-        ID3D11Buffer* const* ppVertexBuffers,
-        const unsigned int* pStrides,
-        const unsigned int* pOffsets);
+                            unsigned int NumBuffers,
+                            ID3D11Buffer* const* ppVertexBuffers,
+                            const unsigned int* pStrides,
+                            const unsigned int* pOffsets);
 
     /**
      * @brief Enlaza un buffer de índices a la etapa Input Assembler (IA).
@@ -139,8 +139,8 @@ public:
      * @param Offset Desplazamiento inicial en bytes.
      */
     void IASetIndexBuffer(ID3D11Buffer* pIndexBuffer,
-        DXGI_FORMAT Format,
-        unsigned int Offset);
+                          DXGI_FORMAT Format,
+                          unsigned int Offset);
 
     /**
      * @brief Asigna estados de muestreo (Samplers) a la etapa Pixel Shader.
@@ -151,8 +151,8 @@ public:
      * @param ppSamplers Array de punteros a los estados de muestreo.
      */
     void PSSetSamplers(unsigned int StartSlot,
-        unsigned int NumSamplers,
-        ID3D11SamplerState* const* ppSamplers);
+                       unsigned int NumSamplers,
+                       ID3D11SamplerState* const* ppSamplers);
 
     /**
      * @brief Configura el estado del Rasterizador (RS).
@@ -171,8 +171,8 @@ public:
      * @param SampleMask Máscara de cobertura de muestras.
      */
     void OMSetBlendState(ID3D11BlendState* pBlendState,
-        const float BlendFactor[4],
-        unsigned int SampleMask);
+                         const float BlendFactor[4],
+                         unsigned int SampleMask);
 
     /**
      * @brief Define los destinos de renderizado en el Output Merger (OM).
@@ -182,8 +182,8 @@ public:
      * @param pDepthStencilView Vista de profundidad/esténcil (donde se guarda la profundidad).
      */
     void OMSetRenderTargets(unsigned int NumViews,
-        ID3D11RenderTargetView* const* ppRenderTargetViews,
-        ID3D11DepthStencilView* pDepthStencilView);
+                            ID3D11RenderTargetView* const* ppRenderTargetViews,
+                            ID3D11DepthStencilView* pDepthStencilView);
 
     /**
      * @brief Define la topología de las primitivas (Triángulos, Líneas, Puntos).
@@ -200,7 +200,7 @@ public:
      * @param ColorRGBA Color de fondo (RGBA).
      */
     void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView,
-        const float ColorRGBA[4]);
+                               const float ColorRGBA[4]);
 
     /**
      * @brief Limpia el buffer de profundidad y/o esténcil.
@@ -211,9 +211,9 @@ public:
      * @param Stencil Valor de esténcil a restablecer.
      */
     void ClearDepthStencilView(ID3D11DepthStencilView* pDepthStencilView,
-        unsigned int ClearFlags,
-        float Depth,
-        UINT8 Stencil);
+                               unsigned int ClearFlags,
+                               float Depth,
+                               UINT8 Stencil);
 
     /**
      * @brief Asigna Constant Buffers al Vertex Shader (VS).
@@ -223,8 +223,8 @@ public:
      * @param ppConstantBuffers Array de punteros a los buffers constantes.
      */
     void VSSetConstantBuffers(unsigned int StartSlot,
-        unsigned int NumBuffers,
-        ID3D11Buffer* const* ppConstantBuffers);
+                              unsigned int NumBuffers,
+                              ID3D11Buffer* const* ppConstantBuffers);
 
     /**
      * @brief Asigna Constant Buffers al Pixel Shader (PS).
@@ -234,8 +234,8 @@ public:
      * @param ppConstantBuffers Array de punteros a los buffers constantes.
      */
     void PSSetConstantBuffers(unsigned int StartSlot,
-        unsigned int NumBuffers,
-        ID3D11Buffer* const* ppConstantBuffers);
+                              unsigned int NumBuffers,
+                              ID3D11Buffer* const* ppConstantBuffers);
 
     /**
      * @brief Ejecuta el comando de dibujo indexado.
@@ -245,8 +245,8 @@ public:
      * @param BaseVertexLocation Valor sumado a cada índice antes de leer el vértice.
      */
     void DrawIndexed(unsigned int IndexCount,
-        unsigned int StartIndexLocation,
-        int BaseVertexLocation);
+                     unsigned int StartIndexLocation,
+                     int BaseVertexLocation);
 
 public:
     /**

@@ -33,7 +33,10 @@ public:
      *
      * Inicializa el componente con contadores a cero y establece su tipo como @c ComponentType::MESH.
      */
-    MeshComponent() : m_numVertex(0), m_numIndex(0), Component(ComponentType::MESH) {}
+    MeshComponent(): 
+                    m_numVertex(0),
+                    m_numIndex(0), 
+                    Component(ComponentType::MESH) {}
 
     /**
      * @brief Destructor virtual.
@@ -44,14 +47,16 @@ public:
      * @brief Inicializa el componente.
      * @note Método heredado de Component. Actualmente vacío.
      */
-    void init() override {};
+    void init() 
+    override {};
 
     /**
      * @brief Actualiza la lógica del componente.
      * @param deltaTime Tiempo transcurrido.
      * @note Método heredado de Component. Actualmente vacío.
      */
-    void update(float deltaTime) override {};
+    void update(float deltaTime)
+    override {};
 
     /**
      * @brief Método de renderizado específico del componente.

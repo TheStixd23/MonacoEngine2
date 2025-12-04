@@ -72,12 +72,12 @@ public:
      * @return HRESULT @c S_OK si fue exitoso; código @c HRESULT en caso contrario.
      */
     HRESULT init(Device& device,
-        unsigned int width,
-        unsigned int height,
-        DXGI_FORMAT Format,
-        unsigned int BindFlags,
-        unsigned int sampleCount = 1,
-        unsigned int qualityLevels = 0);
+                unsigned int width,
+                unsigned int height,
+                DXGI_FORMAT Format,
+                unsigned int BindFlags,
+                unsigned int sampleCount = 1,
+                unsigned int qualityLevels = 0);
 
     /**
      * @brief Inicializa una textura a partir de otra existente.
