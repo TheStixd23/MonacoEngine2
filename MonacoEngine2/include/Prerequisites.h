@@ -53,35 +53,35 @@
 //--------------------------------------------------------------------------------------
 struct SimpleVertex
 {
-    XMFLOAT3 Pos;
-    XMFLOAT2 Tex;
+  XMFLOAT3 Pos;
+  XMFLOAT2 Tex;
 };
 
 struct CBNeverChanges
 {
-    XMMATRIX mView;
+  XMMATRIX mView;
 };
 
 struct CBChangeOnResize
 {
-    XMMATRIX mProjection;
+  XMMATRIX mProjection;
 };
 
 struct CBChangesEveryFrame
 {
-    XMMATRIX mWorld;
-    XMFLOAT4 vMeshColor;
+  XMMATRIX mWorld;
+  XMFLOAT4 vMeshColor;
 };
 
 enum ExtensionType {
-    DDS = 0,
-    PNG = 1,
-    JPG = 2
+  DDS = 0,
+  PNG = 1,
+  JPG = 2
 };
 
 enum ShaderType {
-    VERTEX_SHADER = 0,
-    PIXEL_SHADER = 1
+  VERTEX_SHADER = 0,
+  PIXEL_SHADER = 1
 };
 
 /**
@@ -89,10 +89,10 @@ enum ShaderType {
  * @brief Tipos de componentes disponibles en el juego.
  */
 enum
-    ComponentType {
-    NONE = 0,     ///< Tipo de componente no especificado.
-    TRANSFORM = 1,///< Componente de transformación.
-    MESH = 2,     ///< Componente de malla.
-    MATERIAL = 3,  ///< Componente de material.
-    HIERARCHY = 4
+  ComponentType {
+  NONE = 0,     ///< Tipo de componente no especificado.
+  TRANSFORM = 1,///< Componente de transformación.
+  MESH = 2,     ///< Componente de malla.
+  MATERIAL = 3,  ///< Componente de material.
+  HIERARCHY = 4
 };

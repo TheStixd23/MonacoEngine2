@@ -16,10 +16,10 @@ InputLayout::init(Device& device,
 	}
 
 	HRESULT hr = device.CreateInputLayout(Layout.data(),
-		static_cast<unsigned int>(Layout.size()),
-		VertexShaderData->GetBufferPointer(),
-		VertexShaderData->GetBufferSize(),
-		&m_inputLayout);
+		                                    static_cast<unsigned int>(Layout.size()),
+		                                    VertexShaderData->GetBufferPointer(),
+		                                    VertexShaderData->GetBufferSize(),
+		                                    &m_inputLayout);
 
 	if (FAILED(hr)) {
 		ERROR("InputLayout", "init",
