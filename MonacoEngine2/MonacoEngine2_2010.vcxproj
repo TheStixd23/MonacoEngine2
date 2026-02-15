@@ -423,7 +423,6 @@
   </ItemDefinitionGroup>
   <ItemGroup />
   <ItemGroup>
-    <ClCompile Include="ImGui\ImGuizmo\ImGuizmo.cpp" />
     <ClCompile Include="MonacoEngine2.cpp" />
     <ClCompile Include="source\BaseApp.cpp" />
     <ClCompile Include="source\Buffer.cpp" />
@@ -431,7 +430,6 @@
     <ClCompile Include="source\Device.cpp" />
     <ClCompile Include="source\DeviceContext.cpp" />
     <ClCompile Include="source\ECS\Actor.cpp" />
-    <ClCompile Include="source\GUI\GUI.cpp" />
     <ClCompile Include="source\ImGui\imgui.cpp" />
     <ClCompile Include="source\ImGui\imgui_demo.cpp" />
     <ClCompile Include="source\ImGui\imgui_draw.cpp" />
@@ -443,7 +441,6 @@
     <ClCompile Include="source\Model3D.cpp" />
     <ClCompile Include="source\RenderTargetView.cpp" />
     <ClCompile Include="source\SamplerState.cpp" />
-    <ClCompile Include="source\SceneGraph\SceneGraph.cpp" />
     <ClCompile Include="source\ShaderProgram.cpp" />
     <ClCompile Include="source\SwapChain.cpp" />
     <ClCompile Include="source\Texture.cpp" />
@@ -454,15 +451,6 @@
     <None Include="MonacoEngine2.fx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\backends\imgui_impl_dx11.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\backends\imgui_impl_win32.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\imconfig.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\imgui.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\imgui_internal.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\imstb_rectpack.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\imstb_textedit.h" />
-    <ClInclude Include="ImGui\imgui-docking-znly-docking\imstb_truetype.h" />
-    <ClInclude Include="ImGui\ImGuizmo\ImGuizmo.h" />
     <ClInclude Include="include\BaseApp.h" />
     <ClInclude Include="include\Buffer.h" />
     <ClInclude Include="include\DepthStencilView.h" />
@@ -480,7 +468,14 @@
     <ClInclude Include="include\EngineUtilities\Vectors\Vector2.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector3.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector4.h" />
-    <ClInclude Include="include\GUI\GUI.h" />
+    <ClInclude Include="include\ImGui\imconfig.h" />
+    <ClInclude Include="include\ImGui\imgui.h" />
+    <ClInclude Include="include\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="include\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="include\ImGui\imgui_internal.h" />
+    <ClInclude Include="include\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="include\ImGui\imstb_textedit.h" />
+    <ClInclude Include="include\ImGui\imstb_truetype.h" />
     <ClInclude Include="include\InputLayout.h" />
     <ClInclude Include="include\IResource.h" />
     <ClInclude Include="include\MeshComponent.h" />
@@ -490,8 +485,6 @@
     <ClInclude Include="include\Resource.h" />
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="include\SamplerState.h" />
-    <ClInclude Include="include\SceneGraph\HierarchyComponent.h" />
-    <ClInclude Include="include\SceneGraph\SceneGraph.h" />
     <ClInclude Include="include\ShaderProgram.h" />
     <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="include\SwapChain.h" />
