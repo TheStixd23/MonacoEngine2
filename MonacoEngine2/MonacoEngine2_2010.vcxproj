@@ -423,6 +423,13 @@
   </ItemDefinitionGroup>
   <ItemGroup />
   <ItemGroup>
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\backends\imgui_impl_dx11.cpp" />
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\imgui.cpp" />
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\imgui_demo.cpp" />
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\imgui_draw.cpp" />
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\imgui_tables.cpp" />
+    <ClCompile Include="ImGui\imgui-docking-znly-docking\imgui_widgets.cpp" />
     <ClCompile Include="ImGui\ImGuizmo\ImGuizmo.cpp" />
     <ClCompile Include="MonacoEngine2.cpp" />
     <ClCompile Include="source\BaseApp.cpp" />
@@ -432,13 +439,6 @@
     <ClCompile Include="source\DeviceContext.cpp" />
     <ClCompile Include="source\ECS\Actor.cpp" />
     <ClCompile Include="source\GUI\GUI.cpp" />
-    <ClCompile Include="source\ImGui\imgui.cpp" />
-    <ClCompile Include="source\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="source\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="source\ImGui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="source\ImGui\imgui_impl_win32.cpp" />
-    <ClCompile Include="source\ImGui\imgui_tables.cpp" />
-    <ClCompile Include="source\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="source\InputLayout.cpp" />
     <ClCompile Include="source\Model3D.cpp" />
     <ClCompile Include="source\RenderTargetView.cpp" />
@@ -480,7 +480,6 @@
     <ClInclude Include="include\EngineUtilities\Vectors\Vector2.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector3.h" />
     <ClInclude Include="include\EngineUtilities\Vectors\Vector4.h" />
-    <ClInclude Include="include\GUI\GUI.h" />
     <ClInclude Include="include\InputLayout.h" />
     <ClInclude Include="include\IResource.h" />
     <ClInclude Include="include\MeshComponent.h" />
@@ -490,8 +489,6 @@
     <ClInclude Include="include\Resource.h" />
     <ClInclude Include="include\ResourceManager.h" />
     <ClInclude Include="include\SamplerState.h" />
-    <ClInclude Include="include\SceneGraph\HierarchyComponent.h" />
-    <ClInclude Include="include\SceneGraph\SceneGraph.h" />
     <ClInclude Include="include\ShaderProgram.h" />
     <ClInclude Include="include\stb_image.h" />
     <ClInclude Include="include\SwapChain.h" />
