@@ -1,4 +1,3 @@
-
 #include "SwapChain.h"
 #include "Device.h"
 #include "DeviceContext.h"
