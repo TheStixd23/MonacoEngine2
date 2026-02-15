@@ -1,96 +1,89 @@
-#pragma once
+ï»¿#pragma once
 #include "Prerequisites.h"
-#include "EngineUtilities/Vectors/Vector3.h"
-#include "Component.h"
 
-class 
-Transform : public Component {
+#include "imgui.h"
+#include <imgui_internal.h>
+#include "imgui_impl_win32.h"
+#include "imgui_impl_dx11.h"
+#include "ImGuizmo.h"
+
+class Viewport;
+class Window;
+class Device;
+class DeviceContext;
+class Actor;
+
+class
+    GUI {
 public:
-  // Constructor que inicializa posición, rotación y escala por defecto
-  Transform() : position(), 
-                rotation(), 
-                scale(), 
-                matrix(), 
-                Component(ComponentType::TRANSFORM) {}
+    GUI() = default;
+    ~GUI() = default;
 
-  // Métodos para inicialización, actualización, renderizado y destrucción
-  // Inicializa el objeto Transform
-  void 
-  init() {
-    scale.one();
-    matrix = XMMatrixIdentity();
-  }
+    void
+        awake();
 
-  // Actualiza el estado del objeto Transform basado en el tiempo transcurrido
-  // @param deltaTime: Tiempo transcurrido desde la última actualización
-  void 
-  update(float deltaTime) override {
-    // Aplicar escala
-    XMMATRIX scaleMatrix = XMMatrixScaling(scale.x, scale.y, scale.z);
-    // Aplicar rotacion
-    XMMATRIX rotationMatrix = XMMatrixRotationRollPitchYaw(rotation.x, rotation.y, rotation.z);
-    // Aplicar traslacion
-    XMMATRIX translationMatrix = XMMatrixTranslation(position.x, position.y, position.z);
+    void
+        init(Window& window, Device& device, DeviceContext& deviceContext);
 
-    // Componer la matriz final en el orden: scale -> rotation -> translation
-    matrix = scaleMatrix * rotationMatrix * translationMatrix;
-  }
+    void
+        update(Viewport& viewport, Window& window);
 
-  // Renderiza el objeto Transform
-  // @param deviceContext: Contexto del dispositivo de renderizado
-  void 
-  render(DeviceContext& deviceContext) override {}
+    void
+        render();
 
-  // Destruye el objeto Transform y libera recursos
-  void 
-  destroy() {}
+    void
+        destroy();
 
-  // Métodos de acceso a los datos de posición
-  // Retorna la posición actual
-  const EU::Vector3&
-  getPosition() const { return position; }
+    void
+        ToolBar();
 
-  // Establece una nueva posición
-  void 
-  setPosition(const EU::Vector3& newPos) { position = newPos; }
 
-  // Métodos de acceso a los datos de rotación
-  // Retorna la rotación actual
-  const EU::Vector3&
-  getRotation() const { return rotation; }
+    void
+        closeApp();
 
-  // Establece una nueva rotación
-  void 
-  setRotation(const EU::Vector3& newRot) { rotation = newRot; }
+    void
+        toolTipData();
 
-  // Métodos de acceso a los datos de escala
-  // Retorna la escala actual
-  const EU::Vector3&
-  getScale() const { return scale; }
+    void
+        appleLiquidStyle(float opacity /*0..1f*/, ImVec4 accent /*=#0A84FF*/);
 
-  // Establece una nueva escala
-  void 
-  setScale(const EU::Vector3& newScale) { scale = newScale; }
+    void
+        vec3Control(const std::string& label,
+            float* values,
+            float resetValues = 0.0f,
+            float columnWidth = 100.0f);
 
-  void
-  setTransform(const EU::Vector3& newPos, 
-               const EU::Vector3& newRot,
-               const EU::Vector3& newSca) {
-    position = newPos;
-    rotation = newRot;
-    scale = newSca;
-  }
+    void
+        inspectorGeneral(EU::TSharedPointer<Actor> actor);
 
-  // Método para trasladar la posición del objeto
-  // @param translation: Vector que representa la cantidad de traslado en cada eje
-  void 
-  translate(const EU::Vector3& translation);
+    void
+        inspectorContainer(EU::TSharedPointer<Actor> actor);
+
+    void
+        outliner(const std::vector<EU::TSharedPointer<Actor>>& actors);
+
+    void
+        editTransform(const XMMATRIX& view, const XMMATRIX& projection, EU::TSharedPointer<Actor> actor);
+
+    void
+        drawGizmoToolbar();
+
+    // Crea una funciï¿½n auxiliar para convertir XMMATRIX a lo que ImGuizmo quiere
+    void ToFloatArray(const XMMATRIX& mat, float* dest) {
+        XMFLOAT4X4 temp;
+        XMStoreFloat4x4(&temp, mat);
+        memcpy(dest, &temp, sizeof(float) * 16);
+    }
 
 private:
-  EU::Vector3 position;  // Posición del objeto
-  EU::Vector3 rotation;  // Rotación del objeto
-  EU::Vector3 scale;     // Escala del objeto
+    bool checkboxValue = true;
+    bool checkboxValue2 = false;
+    std::vector<const char*> m_objectsNames;
+    std::vector<const char*> m_tooltips;
+
+    bool show_exit_popup = false; // Variable de estado para el popup
+
 
 public:
-  XMMATRIX matrix;    // Matriz de transformación
+    int selectedActorIndex = -1;
 };

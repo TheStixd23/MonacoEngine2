@@ -3,6 +3,7 @@
 #include "Device.h"
 #include "DeviceContext.h"
 
+
 Actor::Actor(Device& device) {
 	// Setup Default Components
 	EU::TSharedPointer<Transform> transform = EU::MakeShared<Transform>();
@@ -16,6 +17,9 @@ Actor::Actor(Device& device) {
 	if (FAILED(hr)) {
 		ERROR("Actor", classNameType.c_str(), "Failed to create new CBChangesEveryFrame");
 	}
+
+	// Awake
+	awake();
 
 	hr = m_sampler.init(device);
 	if (FAILED(hr)) {
@@ -64,7 +68,7 @@ Actor::Actor(Device& device) {
 	//m_LightPos = XMFLOAT4(2.0f, 4.0f, -2.0f, 1.0f);
 }
 
-void 
+void
 Actor::update(float deltaTime, DeviceContext& deviceContext) {
 	// Update all components
 	for (auto& component : m_components) {
@@ -80,7 +84,7 @@ Actor::update(float deltaTime, DeviceContext& deviceContext) {
 	m_modelBuffer.update(deviceContext, nullptr, 0, nullptr, &m_model, 0, 0);
 }
 
-void 
+void
 Actor::render(DeviceContext& deviceContext) {
 	// 1) Proyectar sombra primero (sobre el suelo)
 	//if (canCastShadow()) {
@@ -137,7 +141,7 @@ Actor::destroy() {
 	m_sampler.destroy();
 }
 
-void 
+void
 Actor::setMesh(Device& device, std::vector<MeshComponent> meshes) {
 	m_meshes = meshes;
 	HRESULT hr;

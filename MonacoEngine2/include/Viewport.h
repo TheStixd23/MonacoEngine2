@@ -1,90 +1,91 @@
-#pragma once
 /**
  * @file Viewport.h
- * @brief Definición de la clase Viewport.
+ * @brief Define la clase Viewport, que gestiona el estado del viewport para el pipeline de renderizado.
  *
- * Encapsula la estructura D3D11_VIEWPORT, que define el área rectangular
- * de la ventana (o render target) donde se rasterizará la escena.
- *
- * @author Hannin Abarca
+ * Un viewport define qué porción del Render Target se mapea al espacio de coordenadas de clip
+ * normalizado (NDC) después de la etapa de transformación de la perspectiva.
  */
+#pragma once
 
 #include "Prerequisites.h"
 
-class Window;
-class DeviceContext;
+ // Declaraciones adelantadas (Forward Declarations)
+class
+	Window;
+
+class
+	DeviceContext;
 
 /**
  * @class Viewport
- * @brief Encapsula un @c D3D11_VIEWPORT para definir la región de renderizado.
+ * @brief Encapsula la estructura D3D11_VIEWPORT y proporciona métodos para su inicialización y vinculación.
  *
- * Un viewport en Direct3D 11 especifica cómo se mapean las coordenadas normalizadas
- * del dispositivo (NDC) a los píxeles del render target.
- * Controla:
- * - Dimensiones (Ancho/Alto).
- * - Posición (TopLeftX/Y).
- * - Rango de profundidad (MinDepth/MaxDepth).
+ * Define la región rectangular de la superficie de destino a la que se renderizan los primitivos.
  */
-class Viewport {
+class
+	Viewport {
 public:
-    /**
-     * @brief Constructor por defecto.
-     */
-    Viewport() = default;
 
-    /**
-     * @brief Destructor por defecto.
-     */
-    ~Viewport() = default;
+	/**
+	 * @brief Constructor por defecto.
+	 */
+	Viewport() = default;
 
-    /**
-     * @brief Inicializa el viewport a partir de las dimensiones de una ventana.
-     *
-     * Configura el viewport para cubrir toda el área cliente de la ventana proporcionada.
-     * Profundidad estándar: 0.0f a 1.0f.
-     *
-     * @param window Referencia a la ventana de la cual se tomarán las dimensiones.
-     * @return HRESULT @c S_OK si es exitoso; código de error si la ventana no es válida.
-     */
-    HRESULT init(const Window& window);
+	/**
+	 * @brief Destructor por defecto.
+	 */
+	~Viewport() = default;
 
-    /**
-     * @brief Inicializa el viewport con dimensiones específicas manuales.
-     *
-     * Útil cuando se quiere renderizar en una sub-región de la pantalla o en una
-     * textura de tamaño diferente al de la ventana.
-     *
-     * @param width  Ancho del viewport en píxeles.
-     * @param height Alto del viewport en píxeles.
-     * @return HRESULT @c S_OK si es exitoso.
-     */
-    HRESULT init(unsigned int width, unsigned int height);
+	/**
+	 * @brief Inicializa el viewport basándose en las dimensiones de una ventana existente.
+	 *
+	 * Utiliza el ancho y alto del cliente de la ventana para configurar el viewport.
+	 *
+	 * @param window Referencia constante al objeto Window cuyas dimensiones se utilizarán.
+	 * @return HRESULT Siempre devuelve S_OK ya que es una operación de configuración local.
+	 */
+	HRESULT
+		init(const Window& window);
 
-    /**
-     * @brief Actualiza los parámetros del viewport.
-     * @note Método reservado para lógica futura (ej. responder a WM_SIZE).
-     */
-    void update();
+	/**
+	 * @brief Inicializa el viewport con dimensiones específicas.
+	 *
+	 * Configura el ancho, el alto, el rango de profundidad (MinDepth/MaxDepth) y la esquina superior izquierda (TopLeftX/Y).
+	 *
+	 * @param width El ancho del viewport.
+	 * @param height La altura del viewport.
+	 * @return HRESULT Siempre devuelve S_OK ya que es una operación de configuración local.
+	 */
+	HRESULT
+		init(unsigned int width, unsigned int height);
 
-    /**
-     * @brief Activa el viewport en el pipeline de rasterización.
-     *
-     * Llama a @c RSSetViewports en el contexto proporcionado.
-     *
-     * @param deviceContext Contexto del dispositivo donde se aplicará el viewport.
-     * @pre Debe haberse llamado a @c init() previamente.
-     */
-    void render(DeviceContext& deviceContext);
+	/**
+	 * @brief Lógica de actualización (generalmente vacía para un viewport estático).
+	 *
+	 * Podría usarse para manejar cambios de tamaño dinámicos si no se usa el método init(Window&).
+	 */
+	void
+		update();
 
-    /**
-     * @brief Libera recursos.
-     * @note D3D11_VIEWPORT es una estructura POD (Plain Old Data), no requiere Release().
-     */
-    void destroy() {}
+	/**
+	 * @brief Vincula el viewport al pipeline de renderizado.
+	 *
+	 * Llama a RSSetViewports en el DeviceContext para establecer el viewport activo.
+	 * @param deviceContext Referencia al contexto del dispositivo para establecer el recurso.
+	 */
+	void
+		render(DeviceContext& deviceContext);
+
+	/**
+	 * @brief Limpia y libera recursos.
+	 *
+	 * Implementación vacía ya que esta clase solo contiene una estructura de datos local (D3D11_VIEWPORT)
+	 * y no gestiona recursos de DirectX que deban ser liberados explícitamente.
+	 */
+	void
+		destroy() {}
 
 public:
-    /**
-     * @brief Estructura nativa de Direct3D que almacena la configuración del viewport.
-     */
-    D3D11_VIEWPORT m_viewport = {};
+	/// @brief Estructura nativa de DirectX que contiene la definición del viewport.
+	D3D11_VIEWPORT m_viewport;
 };
